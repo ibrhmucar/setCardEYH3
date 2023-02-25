@@ -1,4 +1,3 @@
-@test
 Feature: As a Admin User, User can login with credentials.
 
   Background:

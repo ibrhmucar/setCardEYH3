@@ -2,9 +2,11 @@ package com.setcard.step_defs;
 
 import com.setcard.pages.Dashboard;
 import com.setcard.utilities.*;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -22,6 +24,8 @@ public class DashBoardStepDefs {
     SetUtil set = new SetUtil();
 
     String newVergiNumarasi;
+
+    Scenario scenario;
 
     @Given("User navigate to Firmalar page successfully")
     public void userNavigateToFirmalarPageSuccessfully() {
@@ -145,7 +149,7 @@ public class DashBoardStepDefs {
         set.equeals(expectedYemekKartiFirma,Integer.valueOf(kullanan).toString());
         set.equeals(expectedPasifFirma,Integer.valueOf(pasifCompnay).toString());
 
-
+        Log4j.info("Check all information successfully");
 
     }
 

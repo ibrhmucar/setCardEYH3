@@ -17,7 +17,7 @@ public class Hooks {
         Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Driver.get().manage().window().maximize();
 
-        Log4j.startLog("Setcard Login");
+
 
     }
 
@@ -28,7 +28,11 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
 
-       Log4j.endLog("Setcard Login");
+
+       scenario.log(scenario.getName());
+       scenario.log(String.valueOf(scenario.getStatus()));
+
+       Log4j.endLog(scenario.getName());
 
        Driver.closeDriver();
     }

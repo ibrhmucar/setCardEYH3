@@ -6,7 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
+import com.setcard.utilities.Log4j;
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
@@ -17,6 +17,8 @@ public class Hooks {
         Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Driver.get().manage().window().maximize();
 
+        Log4j.startLog("Setcard Login");
+
     }
 
     @After
@@ -25,6 +27,8 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
+
+       Log4j.endLog("Setcard Login");
 
        Driver.closeDriver();
     }

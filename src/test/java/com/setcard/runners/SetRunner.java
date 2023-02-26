@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports",
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/Features",
-        glue = "com/setcard/step_defs",
+        glue = "src/test/java/com/setcard/step_defs",
         dryRun = false,
         tags = "@test"
 )

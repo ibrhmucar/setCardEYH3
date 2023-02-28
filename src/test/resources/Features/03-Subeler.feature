@@ -1,3 +1,4 @@
+@test
 Feature: User can search and receive information about company
 
   Background: Background:

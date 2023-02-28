@@ -123,6 +123,46 @@ public class Dashboard extends BasePage {
     @FindBy (xpath = "//tbody[@class='ant-table-tbody']")
     public WebElement listofCompany;
 
+    @FindBy (xpath = "//div[@class='ant-notification-notice-message']")
+    public WebElement successfullyCreatedMessage;
+
+    @FindBy (xpath = "//span[@class='anticon anticon-close ant-notification-notice-close-icon']//*[name()='svg']")
+    public WebElement closeButton;
+
+    @FindBy (xpath = "//span[@aria-label='search']//*[name()='svg']")
+    public WebElement searchButton;
+
+    @FindBy (xpath = "//input[@placeholder='Ara']")
+    public WebElement searchBox;
+
+    @FindBy (xpath = "//span[normalize-space()='Ara']")
+    public WebElement aramaButonu;
+
+    @FindBy (xpath = "//span[@aria-label='calendar']//*[name()='svg']")
+    public WebElement tarihButton;
+
+    @FindBy (xpath = "//input[@placeholder='Başlangıç']")
+    public WebElement baslangic;
+
+    @FindBy (xpath = "//input[@placeholder='Bitiş']")
+    public WebElement bitis;
+
+    @FindBy (xpath = "//td[@title='2023-02-26']")
+    public WebElement selectTarih;
+
+    @FindBy (xpath = "//td[@title='2023-02-27']")
+    public WebElement select2Tarih;
+
+    @FindBy (xpath = "(//span[@role='button'])[3]")
+    public WebElement yemekKartiFiltre;
+    @FindBy (xpath = "//span[@class='ant-dropdown-menu-title-content']//span[contains(text(),'Kullanmıyor')]")
+    public WebElement kartKullanmiyor;
+
+    @FindBy (xpath = "//button[@type='button']//span[contains(text(),'Tamam')]")
+    public WebElement tamamButton;
+
+
+
 
 
     public String getNumberOfInformation(WebElement value){

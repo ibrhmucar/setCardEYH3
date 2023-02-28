@@ -16,7 +16,7 @@ public class Hooks {
 
         Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Driver.get().manage().window().maximize();
-
+        Log4j.startLog("Test Starting");
 
 
     }
@@ -28,12 +28,9 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
 
+        Log4j.endLog(scenario.getName());
+        System.out.println(scenario.getStatus());
 
-       scenario.log(scenario.getName());
-       scenario.log(String.valueOf(scenario.getStatus()));
-
-       Log4j.endLog(scenario.getName());
-
-       Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

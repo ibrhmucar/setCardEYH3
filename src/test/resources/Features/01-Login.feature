@@ -1,4 +1,5 @@
-Feature: As a Admin User, User can login with credentials.
+  @test
+  Feature: As a Admin User, User can login with credentials.
 
   Background:
     Given User on the main URL

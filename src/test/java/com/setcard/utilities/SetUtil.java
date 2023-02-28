@@ -11,7 +11,9 @@ import java.util.Map;
 public class SetUtil {
 
     Dashboard dash = new Dashboard();
-    public  ExcelUtil excelUtil = new ExcelUtil("src/test/resources/Kitap1.xlsx", "Info");
+
+    String companyName;
+    public  ExcelUtil excelUtil = new ExcelUtil("src/test/resources/SetCardInfo.xlsx", "Info");
     public  List<Map<String, String>> dataList = excelUtil.getDataList();
 
 
@@ -105,5 +107,53 @@ public class SetUtil {
         Assert.assertTrue(value1.equals(value2));
 
     }
+
+    public WebElement getWarning (String value){
+
+       return Driver.get().findElement(By.xpath("//div[@class='ant-form-item-explain-error' and contains(text(),'"+value+"')]"));
+
+    }
+
+   public void getWarningAlertMessage (String aa){
+
+     String value = getWarning(aa).getText();
+     System.out.println(value);
+     System.out.println(aa);
+     Assert.assertTrue(value.equals(aa));
+   }
+
+   public void clickClose(){
+
+       for (int i = 1; i <= 3; i++) {
+            Driver.get().findElement(By.xpath("(//span[@class='anticon anticon-close ant-notification-notice-close-icon']//*[name()='svg'])["+i+"]")).click();
+
+       }
+
+   }
+
+   public String searchResult (){
+
+       List<WebElement> allCompanyNumber = Driver.get().findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
+       companyName = allCompanyNumber.get(0).getText();
+       return  companyName;
+   }
+
+   public String searchResultGetting(int number){
+       searchResult();
+
+       String [] newCompanyName = companyName.split(" ");
+       String info = newCompanyName[number];
+
+       return info;
+   }
+
+   public int searchResult2(){
+
+       List<WebElement> allCompanyNumber = Driver.get().findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
+       int actualToplamFirma = allCompanyNumber.toArray().length;
+       return actualToplamFirma;
+   }
+
+
 
 }
